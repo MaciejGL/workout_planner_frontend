@@ -75,35 +75,3 @@ const CustomDrawer = ({ handleOpenDrawer, openDrawer }) => {
 };
 
 export default CustomDrawer;
-
-{
-  /* <ListItem onClick={handleOpenDrawer} className={classes.list} button>
-          <ListItemIcon>
-            <FitnessCenter />
-          </ListItemIcon>
-          <ListItemText primary={'Workouts'} />
-        </ListItem>
-        <Divider />
-        <ListItem onClick={handleOpenDrawer} button>
-          <ListItemIcon>
-            <AddSharp />
-          </ListItemIcon>
-          <ListItemText primary={'Create New'} />
-        </ListItem>
-        <Divider />
-        <ListItem onClick={handleOpenDrawer} button>
-          <ListItemIcon>
-            <AccountCircleSharp />
-          </ListItemIcon>
-          <ListItemText primary={'Account'} />
-        </ListItem>
-        <Divider />
- 
-        <ListItem onClick={handleOpenDrawer} button>
-          <ListItemIcon>
-            <InfoSharp />
-          </ListItemIcon>
-          <ListItemText primary={'About'} />
-        </ListItem>
-      <Divider /> */
-}
