@@ -43,6 +43,7 @@ const Plans = () => {
         plans.map((plan, i) => (
           <Link to={`/plans/${plan._id}`}>
             <Card
+              key={plan._id}
               days={plan.days.length}
               title={plan.name}
               imageUrl={images[i]}

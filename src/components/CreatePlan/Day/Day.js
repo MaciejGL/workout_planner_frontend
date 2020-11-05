@@ -1,6 +1,5 @@
 import React from 'react';
 import { AddBox } from '@material-ui/icons';
-import { Divider } from '@material-ui/core';
 
 import styles from './Day.module.css';
 

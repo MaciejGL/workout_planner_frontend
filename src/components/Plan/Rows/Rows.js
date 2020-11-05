@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import {
   Box,
-  ListItemIcon,
   Collapse,
   IconButton,
   Table,
@@ -11,7 +10,7 @@ import {
   TableHead,
   TableRow,
 } from '@material-ui/core';
-import { Edit, KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
+import { KeyboardArrowDown, KeyboardArrowUp } from '@material-ui/icons';
 
 import Row from './Row/Row';
 
