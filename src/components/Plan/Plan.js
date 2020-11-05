@@ -16,7 +16,6 @@ import { ArrowBack } from '@material-ui/icons';
 
 import { UserContext } from '../../store/store';
 import Rows from './Rows/Rows';
-import styles from './Plan.module.css';
 
 const useStyles = makeStyles({
   btn: {

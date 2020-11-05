@@ -21,7 +21,7 @@ const Create = () => {
   const [days, setDays] = useState([]);
   const [title, setTitle] = useState('');
   const [subtitle, setSubTitle] = useState('');
-  const [addingNewEx, setAddingNewEx] = useState(false);
+  const [, setAddingNewEx] = useState(false);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -32,7 +32,7 @@ const Create = () => {
   };
 
   const handleAddNewExcersise = excersise => {
-    console.log(excersise);
+    // console.log(excersise);
     setAddingNewEx(true);
   };
 
@@ -65,7 +65,11 @@ const Create = () => {
 
       <div className={styles.daysContainer}>
         {days.map(day => (
-          <Day handleAddNewExcersise={handleAddNewExcersise} day={day} />
+          <Day
+            key={day.id}
+            handleAddNewExcersise={handleAddNewExcersise}
+            day={day}
+          />
         ))}
       </div>
     </div>
