@@ -1,0 +1,23 @@
+.title {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 80%;
+  max-width: 400px;
+  margin: 20px auto;
+}
+
+.input {
+  flex-basis: 100%;
+}
+
+.daysContainer {
+  max-width: 400px;
+  width: 80%;
+  margin: 20px auto;
+}

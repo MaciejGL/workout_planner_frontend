@@ -1,0 +1,10 @@
+.btnBack {
+  position: fixed;
+  font-size: 1.2em;
+  line-height: 56px;
+  padding: 0 10px;
+  top: 0px;
+  left: 20px;
+  color: white;
+  z-index: 1300;
+}

@@ -1,19 +1,17 @@
-import React, { useMemo, useReducer } from "react";
+import React, { useMemo, useReducer } from 'react';
 
-import Header from "./components/Header";
-import Main from "./components/Main";
+import Layout from './components/Layout';
 
-import { userReducer, data, UserContext } from "./store/store";
+import { userReducer, UserContext } from './store/store';
 
 const App = () => {
-  const [state, dispatch] = useReducer(userReducer, data);
+  const [state, dispatch] = useReducer(userReducer, []);
   const contextValue = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return (
     <UserContext.Provider value={contextValue}>
       <div className="App">
-        <Header />
-        <Main />
+        <Layout />
       </div>
     </UserContext.Provider>
   );

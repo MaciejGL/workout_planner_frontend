@@ -1,0 +1,27 @@
+.card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 150px;
+  margin: 10px auto;
+}
+
+.cardTitle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.cardSubtitle {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+}
+
+.cardSubtitle span {
+  font-size: 1.5em;
+  font-weight: 800;
+}
