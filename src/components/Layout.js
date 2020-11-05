@@ -12,14 +12,14 @@ import About from './About/About';
 
 import { UserContext } from '../store/store';
 
-// const mainUrl = 'https://workout-planner-backendv1.herokuapp.com/plans';
-
+const mainUrl = 'https://workout-planner-backendv1.herokuapp.com/plans';
+// const devUrl = 'http://localhost:8080/plans';
 const Layout = () => {
   const { dispatch } = useContext(UserContext);
 
   useLayoutEffect(() => {
     const fetchIt = async () => {
-      const result = await axios.get('http://localhost:8080/plans');
+      const result = await axios.get(mainUrl);
       if (result.data) {
         console.log(result.data);
         dispatch({ type: 'LOAD_DATA', payload: result.data });
