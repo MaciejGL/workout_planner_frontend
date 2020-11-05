@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Drawer, Divider, Typography } from '@material-ui/core';
 import ListItem from '@material-ui/core/ListItem';
@@ -25,6 +26,10 @@ const useStyles = makeStyles({
   fullList: {
     width: 'auto',
   },
+  link: {
+    textDecoration: 'none',
+    color: 'inherit',
+  },
 });
 
 const CustomDrawer = ({ handleOpenDrawer, openDrawer }) => {
@@ -32,20 +37,29 @@ const CustomDrawer = ({ handleOpenDrawer, openDrawer }) => {
 
   const listItems = [
     {
-      title: 'Workouts',
+      title: 'Home',
       icon: <FitnessCenter />,
+      pathTo: '/',
     },
     {
-      title: 'Create New',
+      title: 'Your Plans',
+      icon: <FitnessCenter />,
+      pathTo: '/plans',
+    },
+    {
+      title: 'Create New Plan',
       icon: <AddSharp />,
+      pathTo: '/createplan',
     },
     {
       title: 'Account',
       icon: <AccountCircleSharp />,
+      pathTo: '/account',
     },
     {
-      title: 'About',
+      title: 'About App',
       icon: <InfoSharp />,
+      pathTo: '/about',
     },
   ];
 
@@ -58,7 +72,7 @@ const CustomDrawer = ({ handleOpenDrawer, openDrawer }) => {
 
         <Divider />
         {listItems.map(item => (
-          <>
+          <Link to={item.pathTo} className={classes.link} key={item.title}>
             <ListItem
               onClick={handleOpenDrawer}
               className={classes.list}
@@ -67,7 +81,7 @@ const CustomDrawer = ({ handleOpenDrawer, openDrawer }) => {
               <ListItemText primary={item.title} />
             </ListItem>
             <Divider />
-          </>
+          </Link>
         ))}
       </Drawer>
     </React.Fragment>
