@@ -1,9 +1,10 @@
 import { createContext } from 'react';
 
-const data = [];
-
-const userReducer = (state = data, action) => {
+const userReducer = (state = [], action) => {
   switch (action.type) {
+    case 'LOAD_DATA':
+      console.log(action.payload);
+      return action.payload;
     default:
       return state;
   }
@@ -11,4 +12,4 @@ const userReducer = (state = data, action) => {
 
 const UserContext = createContext();
 
-export { data, userReducer, UserContext };
+export { userReducer, UserContext };

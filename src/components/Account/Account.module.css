@@ -1,0 +1,21 @@
+.title {
+  margin: 20px;
+  text-align: center;
+  font-weight: normal;
+}
+
+.ul {
+  list-style: none;
+  padding: 0;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.ul li {
+  padding: 5px 0;
+  font-weight: 600;
+}
+.ul li span {
+  font-weight: normal;
+  font-size: 1.2em;
+}

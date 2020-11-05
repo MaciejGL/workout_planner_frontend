@@ -1,18 +1,24 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { makeStyles } from '@material-ui/core/styles';
-import { Typography, Button, Icon } from '@material-ui/core';
+import { Typography, Button } from '@material-ui/core';
 import { ArrowRight } from '@material-ui/icons';
 
 import styles from './Homepage.module.css';
+import { makeStyles } from '@material-ui/core/styles';
+
 import homepageImage from '../../assets/homepageImage.png';
 
-const useStyles = makeStyles(theme => ({}));
-
+const spacingStyles = makeStyles({
+  subHeading: {
+    margin: '30px 10px',
+  },
+  button: {
+    margin: '30px 0',
+  },
+});
 const Homepage = () => {
-  const classes = useStyles();
-
+  const classes = spacingStyles();
   return (
     <div>
       <section className={styles.topSection}>
@@ -26,7 +32,7 @@ const Homepage = () => {
         </Typography>
       </section>
       <div className={styles.bottomSection}>
-        <Typography className={styles.subHeading} variant="h5">
+        <Typography className={classes.subHeading} variant="h5">
           With plan comes a success.
         </Typography>
         <Typography className={styles.description} variant="subtitle1">
@@ -37,7 +43,7 @@ const Homepage = () => {
           <Button
             variant="contained"
             color="primary"
-            className={styles.button}
+            className={classes.button}
             endIcon={<ArrowRight />}>
             Choose a Plan
           </Button>
