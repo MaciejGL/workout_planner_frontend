@@ -32,6 +32,7 @@ const Create = props => {
   const [dayName, setDayName] = useState('');
   const [subtitle, setSubTitle] = useState('');
   const [modalOpen, setModalOpen] = useState(false);
+  // const [error, setError] = useState('');
 
   const toggleModal = () => setModalOpen(!modalOpen);
 
@@ -43,8 +44,22 @@ const Create = props => {
 
   const { dispatch } = useContext(UserContext);
 
+  // const validate = arrOfValues => {
+  //   arrOfValues.forEach(value => {
+  //     if (!value) return setError('Invalid Value');
+  //     if (value.length < 2)
+  //       return setError('Value has to be minimum 2 characters long');
+  //     if (value.length > 30)
+  //       return setError('Value has to be maximum 30 characters long');
+  //   });
+  // };
+
   const handleSubmit = e => {
     e.preventDefault();
+    // validate([dayName])
+    // if (error) {
+    //   return;
+    // }
     const newDay = {
       id: uuidv4(),
       name: dayName,
@@ -63,6 +78,7 @@ const Create = props => {
 
   const handleSubmitEx = e => {
     e.preventDefault();
+    // validate([exTitle]);
     const newEx = {
       name: exTitle,
       sets: exSets,
@@ -84,11 +100,14 @@ const Create = props => {
     toggleModal();
   };
   const handleAddNewPlan = async () => {
-    const savedToDB = await axios.post('http://localhost:8080/plans', {
-      name: title,
-      description: subtitle,
-      days,
-    });
+    const savedToDB = await axios.post(
+      'https://workout-planner-backendv1.herokuapp.com/plans',
+      {
+        name: title,
+        description: subtitle,
+        days,
+      },
+    );
     dispatch({
       type: 'ADD_PLAN',
       payload: savedToDB.data,
