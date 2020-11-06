@@ -71,7 +71,7 @@ const Plan = ({ match, history }) => {
               <TableCell />
               <TableCell>
                 <Typography className={classes.title} variant="h5">
-                  Full Body
+                  {accuratePlan.name}
                 </Typography>
               </TableCell>
             </TableRow>
