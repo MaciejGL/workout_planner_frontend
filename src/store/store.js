@@ -5,6 +5,9 @@ const userReducer = (state = [], action) => {
     case 'LOAD_DATA':
       console.log(action.payload);
       return action.payload;
+    case 'ADD_PLAN':
+      console.log('payload', action.payload);
+      return [...state, action.payload];
     default:
       return state;
   }

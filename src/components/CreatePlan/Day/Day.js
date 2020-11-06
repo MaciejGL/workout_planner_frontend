@@ -3,13 +3,16 @@ import { AddBox } from '@material-ui/icons';
 
 import styles from './Day.module.css';
 
-const Day = ({ day, handleAddNewExcersise }) => {
+const Day = ({ day, getDayId, toggleModal }) => {
   return (
     <article className={styles.dayContainer}>
       <div className={styles.dayHeader}>
         <p>{day.name}</p>
         <AddBox
-          onClick={() => handleAddNewExcersise(day.id)}
+          onClick={() => {
+            getDayId(day.id);
+            toggleModal();
+          }}
           className={styles.btn}
           color="primary"
         />
@@ -17,7 +20,7 @@ const Day = ({ day, handleAddNewExcersise }) => {
       {day.excersises && (
         <ul className={styles.daysContainer}>
           {day.excersises.map(ex => (
-            <li>
+            <li key={Math.random()}>
               {ex.name} - sets: {ex.sets} reps: {ex.reps} weight: {ex.weight}
             </li>
           ))}

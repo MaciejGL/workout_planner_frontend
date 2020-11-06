@@ -21,7 +21,7 @@ const Layout = () => {
     const fetchIt = async () => {
       const result = await axios.get(mainUrl);
       if (result.data) {
-        console.log(result.data);
+        // console.log(result.data);
         dispatch({ type: 'LOAD_DATA', payload: result.data });
       }
     };
