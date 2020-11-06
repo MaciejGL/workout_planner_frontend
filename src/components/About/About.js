@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './About.module.css';
 const About = () => {
   return (
-    <div w>
+    <div>
       <h2 className={styles.title}>Workout Planner</h2>
       <p className={styles.sub}>
         Lorem ipsum, dolor sibus voluptate accusantium impedit quibusdam.

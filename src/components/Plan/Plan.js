@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import {
   Typography,
   Table,
@@ -12,7 +13,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { ArrowBack } from '@material-ui/icons';
+import { ArrowBack, DeleteForeverOutlined, Edit } from '@material-ui/icons';
 
 import { UserContext } from '../../store/store';
 import Rows from './Rows/Rows';
@@ -28,6 +29,10 @@ const useStyles = makeStyles({
     color: 'white',
     zIndex: 1300,
   },
+  actionsContainer: {
+    alignSelf: 'flex-end',
+    margin: '20px',
+  },
   title: {
     padding: '20px',
   },
@@ -35,10 +40,18 @@ const useStyles = makeStyles({
 
 const Plan = ({ match, history }) => {
   const classes = useStyles();
-  const { state } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
 
   const accuratePlan = state.find(plan => plan._id === match.params.id);
-
+  const handleDeleteRequest = async id => {
+    // console.log('delete plan  with this ID', id);
+    await axios.delete(
+      'https://workout-planner-backendv1.herokuapp.com/plans/' + id,
+    );
+    dispatch({ type: 'DELETE_PLAN', payload: id });
+    history.push('/plans');
+    // console.log(deletedResponse);
+  };
   return (
     <>
       <Button
@@ -49,6 +62,7 @@ const Plan = ({ match, history }) => {
         onClick={() => history.push('/plans')}>
         Plans
       </Button>
+
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
           <TableHead>
@@ -69,6 +83,23 @@ const Plan = ({ match, history }) => {
           </TableBody>
         </Table>
       </TableContainer>
+      <div className={classes.actionsContainer}>
+        <Button
+          onClick={() => handleDeleteRequest(accuratePlan._id)}
+          variant="text"
+          color="secondary"
+          className={classes.btnDelete}
+          startIcon={<DeleteForeverOutlined />}>
+          Delete
+        </Button>
+        <Button
+          onClick={() => console.log('Edit mode for: ', accuratePlan._id)}
+          variant="text"
+          color="primary"
+          startIcon={<Edit />}>
+          Edit
+        </Button>
+      </div>
     </>
   );
 };

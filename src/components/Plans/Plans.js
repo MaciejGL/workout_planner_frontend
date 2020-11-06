@@ -41,12 +41,12 @@ const Plans = () => {
       </Typography>
       {plans &&
         plans.map((plan, i) => (
-          <Link to={`/plans/${plan._id}`}>
+          <Link to={`/plans/${plan._id}`} key={plan._id}>
             <Card
               key={plan._id}
               days={plan.days.length}
               title={plan.name}
-              imageUrl={images[i]}
+              imageUrl={images[Math.floor(Math.random() * images.length)]}
             />
           </Link>
         ))}
