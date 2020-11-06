@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { TextField, Fab, Button } from '@material-ui/core';
@@ -19,8 +20,6 @@ const useStyles = makeStyles({
     margin: 10,
   },
   saveBtn: {
-    // color: 'white',
-    // backgroundColor: 'green',
     margin: '10px 10px 10px auto',
     textAlign: 'center',
   },
@@ -58,7 +57,7 @@ const Create = props => {
   };
 
   const getDayId = id => {
-    console.log('id', id);
+    // console.log('id', id);
     setDayId(id);
   };
 
@@ -84,12 +83,17 @@ const Create = props => {
     setExWeight('');
     toggleModal();
   };
-
-  const handleAddNewPlan = () => {
+  const handleAddNewPlan = async () => {
+    const savedToDB = await axios.post('http://localhost:8080/plans', {
+      name: title,
+      description: subtitle,
+      days,
+    });
     dispatch({
       type: 'ADD_PLAN',
-      payload: { _id: uuidv4(), name: title, description: subtitle, days },
+      payload: savedToDB.data,
     });
+    // console.log(savedToDB);
     props.history.push('/plans');
   };
 

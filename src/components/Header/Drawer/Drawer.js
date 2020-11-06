@@ -1,16 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import { Drawer, Divider, Typography } from '@material-ui/core';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
+import {
+  Drawer,
+  Divider,
+  Typography,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+} from '@material-ui/core';
 
 import {
   FitnessCenter,
   AddSharp,
   AccountCircleSharp,
   InfoSharp,
+  Home,
 } from '@material-ui/icons';
 
 import { makeStyles } from '@material-ui/core/styles';
@@ -38,7 +43,7 @@ const CustomDrawer = ({ handleOpenDrawer, openDrawer }) => {
   const listItems = [
     {
       title: 'Home',
-      icon: <FitnessCenter />,
+      icon: <Home />,
       pathTo: '/',
     },
     {

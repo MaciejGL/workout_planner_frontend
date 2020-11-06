@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import {
   Typography,
   Table,
@@ -12,7 +13,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { ArrowBack } from '@material-ui/icons';
+import { ArrowBack, DeleteForeverOutlined } from '@material-ui/icons';
 
 import { UserContext } from '../../store/store';
 import Rows from './Rows/Rows';
@@ -35,10 +36,16 @@ const useStyles = makeStyles({
 
 const Plan = ({ match, history }) => {
   const classes = useStyles();
-  const { state } = useContext(UserContext);
+  const { state, dispatch } = useContext(UserContext);
 
   const accuratePlan = state.find(plan => plan._id === match.params.id);
-
+  const handleDeleteRequest = async id => {
+    // console.log('delete plan  with this ID', id);
+    await axios.delete('http://localhost:8080/plans/' + id);
+    dispatch({ type: 'DELETE_PLAN', payload: id });
+    history.push('/plans');
+    // console.log(deletedResponse);
+  };
   return (
     <>
       <Button
@@ -48,6 +55,14 @@ const Plan = ({ match, history }) => {
         startIcon={<ArrowBack />}
         onClick={() => history.push('/plans')}>
         Plans
+      </Button>
+      <Button
+        onClick={() => handleDeleteRequest(accuratePlan._id)}
+        variant="text"
+        color="secondary"
+        // className={classes.btn}
+        startIcon={<DeleteForeverOutlined />}>
+        Delete
       </Button>
       <TableContainer component={Paper}>
         <Table aria-label="collapsible table">
