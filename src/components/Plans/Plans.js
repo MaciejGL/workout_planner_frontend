@@ -10,15 +10,19 @@ import workout3 from '../../assets/workout3.png';
 import workout4 from '../../assets/workout4.png';
 
 import { UserContext } from '../../store/store';
-
+import styles from './Plans.module.css';
 import Card from './Card/Card';
 
 const useStyles = makeStyles({
   subtitle: {
+    width: '100%',
+    maxWidth: '600px',
     padding: '0 0 20px 20px',
     opacity: 0.6,
   },
   title: {
+    maxWidth: '600px',
+    width: '100%',
     padding: '20px 0 0 20px',
   },
 });
@@ -32,7 +36,7 @@ const Plans = () => {
   }, [state]);
   const images = [workout1, workout2, workout3, workout4];
   return (
-    <div>
+    <div className={styles.container}>
       <Typography className={classes.title} variant="h5">
         Your Plans
       </Typography>
