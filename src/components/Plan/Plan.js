@@ -15,6 +15,7 @@ import {
 import { makeStyles } from '@material-ui/core/styles';
 import { ArrowBack, DeleteForeverOutlined, Edit } from '@material-ui/icons';
 
+import styles from './Plan.module.css';
 import { UserContext } from '../../store/store';
 import Rows from './Rows/Rows';
 
@@ -53,7 +54,7 @@ const Plan = ({ match, history }) => {
     // console.log(deletedResponse);
   };
   return (
-    <>
+    <div className={styles.container}>
       <Button
         variant="text"
         color="primary"
@@ -100,7 +101,7 @@ const Plan = ({ match, history }) => {
           Edit
         </Button>
       </div>
-    </>
+    </div>
   );
 };
 
